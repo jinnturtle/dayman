@@ -1,0 +1,34 @@
+Grooming suggesetions:
+* Shower
+* Shave
+
+Breakfast: food pick [flavour suggestion 1, flavour suggestion 2]
+Alt: alternative option 1 [flavour suggestion 1, flavour suggestion 2]
+Snack: option 1 || option 2
+Drink: suggestion
+
+Lunch: food pick [flavour suggestion 1, flavour suggestion 2]
+Alt: alternative option 1 [flavour suggestion 1, flavour suggestion 2]
+Snack: option 1 || option 2
+Drink: suggestion
+
+Dinner: food pick [flavour suggestion 1, flavour suggestion 2]
+Alt: alternative option 1 [flavour suggestion 1, flavour suggestion 2]
+Drink: suggestion
+
+Supper: food pick [flavour suggestion 1, flavour suggestion 2]
+Alt: alternative option 1 [flavour suggestion 1, flavour suggestion 2]
+Drink: suggestion
+
+Ongoing projects:
+* Proj 1
+* Proj 2
+* Proj 3
+
+Fun: option 1, option 2
+
+Remember:
+* Memo 1
+* Memo 2
+* Memo 3
+* Memo ...
