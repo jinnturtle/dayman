@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "Randomizer.hpp"
+#include "version.hpp"
 
 /* TODO this is just a quick concept test, not even a first sanity/quality pass
 * has been done yet*/
@@ -34,6 +35,7 @@ struct Food_item {
 };
 
 int main (/*int argc, char** argv*/) {
+    std::cout << "Day Manager " << version_str() << std::endl;
     Randomizer rand;
 
     std::array<Food_item, 6> food_options {
