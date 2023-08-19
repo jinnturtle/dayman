@@ -1,0 +1,11 @@
+= TODO
+* Store option lists on file
+** Txt file(s) will prob suffice, SQLite3 db would be more than enough otherwise
+* Add other prints as per reqs
+** List ongoing projects
+* Add other (config per week day) listings as per reqs
+** Grooming suggestions
+** Entertainment suggesetions
+** Memo listing
+* Consider if more tuning is needed (e.g. day of month, etc.)
+* Add a suggestion for "unusual experience" and day countdown till event
