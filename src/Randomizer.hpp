@@ -1,5 +1,5 @@
-#ifndef RANDOMIZER_HPP
-#define RANDOMIZER_HPP
+#ifndef SRC_RANDOMIZER_HPP_
+#define SRC_RANDOMIZER_HPP_
 
 #include <string>
 #include <random>

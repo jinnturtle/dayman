@@ -2,12 +2,16 @@
 // make managing a day easier
 
 #include <array>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
 #include <iostream>
 #include <string>
 #include <vector>
 
 #include "Randomizer.hpp"
 #include "version.hpp"
+#include "utils.hpp"
 
 /* TODO this is just a quick concept test, not even a first sanity/quality pass
 * has been done yet*/
@@ -113,7 +117,14 @@ int main (/*int argc, char** argv*/) {
         }
     }
 
-    const Food_item* opt {breakfast_options[rand.roll(0, breakfast_options.size()-1)]};
+    std::time_t time =
+        std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    std::tm* tm_time = std::gmtime(&time);
+
+    std::cout << "Time: " << std::put_time(tm_time, "%F %T wd%u") << std::endl;
+
+    const Food_item* opt {
+        breakfast_options[rand.roll(0, breakfast_options.size()-1)]};
     std::cout << "Breakfast: "
     << opt->name
     << " [" << opt->flavours[rand.roll(0, opt->flavours.size()-1)] << "]"
