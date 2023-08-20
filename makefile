@@ -3,7 +3,6 @@ NAME = exe
 CXX_SRC =\
 	main.cpp \
 	Randomizer.cpp \
-	utils.cpp \
 	version.cpp
 
 C_SRC =

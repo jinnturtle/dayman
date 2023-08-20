@@ -1,0 +1,22 @@
+# Lines starting with "#" are ignored
+# The first line of an item is it's name
+# The second line of an item is a comma separated list of flavors/variations
+# Items are separated by at least a single empty line
+
+oat porridge
+plain,black currant,raspberry
+
+huel
+banana,berry,cinnamon,chocolate,mint chocolate,vanilla
+
+fried rice
+BBQ,garlic,onion,soy sauce,tomato & basil,lemon & herb
+
+fried veggies
+BBQ,garlic,soy sauce,tomato & basil,lemon & herb
+
+pasta
+BBQ,garlic,onion,soy sauce,tomato & basil,lemon & herb
+
+veggie soup
+peas & sweetcorn etc.,cauliflower & broccoli etc.

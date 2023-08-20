@@ -1,0 +1,6 @@
+# Lines starting with "#" are ignored
+# The first line of an item is it's name
+# The second line of an item is a comma separated list of flavors
+
+flapjack + fruit
+chocolate chip, strawberry, white chocolate, plain
