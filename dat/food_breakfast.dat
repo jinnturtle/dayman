@@ -1,6 +1,10 @@
 # Lines starting with "#" are ignored
 # The first line of an item is it's name
-# The second line of an item is a comma separated list of flavors
+# The second line of an item is a comma separated list of flavors/variations
+# Items are separated by at least a single empty line
 
 flapjack + fruit
-chocolate chip, strawberry, white chocolate, plain
+chocolate chip,sultana & cherry,white chocolate,dark chocolate,strawberry,plain
+
+oat porridge
+plain,black currant,raspberry

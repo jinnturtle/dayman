@@ -1,3 +1,10 @@
+
+General item field requirements:
+* Week days available:
+** comma separated list, ranges defined with minus, asterisk = all
+* at least 2 nesting level i.e. category + subcategories + subsubcategories
+
+
 Grooming suggesetions:
 * Shower
 * Shave

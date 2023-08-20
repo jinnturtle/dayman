@@ -3,9 +3,6 @@
 # The second line of an item is a comma separated list of flavors/variations
 # Items are separated by at least a single empty line
 
-oat porridge
-plain,black currant,raspberry
-
 huel
 banana,berry,cinnamon,chocolate,mint chocolate,vanilla
 

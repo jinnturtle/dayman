@@ -39,21 +39,80 @@ struct Food_item {
 
 int food_list_from_file(std::vector<Food_item>* arr, const std::string& fpath);
 
-int main (/*int argc, char** argv*/) {
+int main (/*int argc, char** argv*/)
+{
     std::cout << "Day Manager " << version_str() << std::endl;
 
     Randomizer rand;
 
-    std::string food_general_fpath("./dat/food_general.dat");
+    std::string general_foods_fpath  ("./dat/food_general.dat");
+    std::string breakfast_foods_fpath("./dat/food_breakfast.dat");
+
+    std::vector<Food_item> general_foods;
+    if (food_list_from_file(&general_foods, general_foods_fpath)) {
+        std::cout << "ERROR: while loading general_foods" << std::endl;
+        return 1;
+    }
+    std::vector<Food_item> breakfast_foods;
+    if (food_list_from_file(&breakfast_foods, breakfast_foods_fpath)) {
+        std::cout << "ERROR: while loading breakfast_foods" << std::endl;
+        return 1;
+    }
+
+    std::time_t time =
+        std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    std::tm* tm_time = std::gmtime(&time);
+
+    std::cout << "Time: " << std::put_time(tm_time, "%F %T wd%u") << std::endl;
+
+    const Food_item* opt {nullptr};
+    //opt {
+    //    breakfast_options[rand.roll(0, breakfast_options.size()-1)]};
+    opt = &breakfast_foods[rand.roll(0, breakfast_foods.size()-1)];
+    std::cout << "Breakfast: "
+    << opt->name
+    << " [" << opt->flavors[rand.roll(0, opt->flavors.size()-1)] << "]"
+    << std::endl;
+
+    opt = &general_foods[rand.roll(0, general_foods.size()-1)];
+    std::cout << "Lunch: "
+    << opt->name
+    << " [" << opt->flavors[rand.roll(0, opt->flavors.size()-1)] << "]"
+    << std::endl;
+
+    opt = &general_foods[rand.roll(0, general_foods.size()-1)];
+    std::cout << "Dinner: "
+    << opt->name
+    << " [" << opt->flavors[rand.roll(0, opt->flavors.size()-1)] << "]"
+    << std::endl;
+
+    opt = &general_foods[rand.roll(0, general_foods.size()-1)];
+    std::cout << "Supper: "
+    << opt->name
+    << " [" << opt->flavors[rand.roll(0, opt->flavors.size()-1)] << "]"
+    << std::endl;
+
+    return 0;
+}
+
+// TODO - just a POC, needs at least one quality/sanity pass
+/* food_list_from_file fills "arr" with food items found in "fpath", returns
+ * !0 on error*/
+int food_list_from_file(std::vector<Food_item>* arr, const std::string& fpath)
+{
+    if (arr == nullptr) {
+        std::cout << "ERROR: array is nullptr" << std::endl;
+        return 1;
+    }
+
     std::fstream ifs;
-    ifs.open(food_general_fpath, std::ios_base::in);
+    ifs.open(fpath, std::ios_base::in);
     if (!ifs.is_open()) {
-        std::cout << "ERROR: could not open " << food_general_fpath
+        std::cout << "ERROR: could not open " << fpath
         << " for reading" << std::endl;
         return 1;
     }
 
-    std::vector<Food_item> general_options;
     // 0 - ready for new obj
     // 1 - got name, ready for flavors/options
     int food_read_state {0};
@@ -70,7 +129,7 @@ int main (/*int argc, char** argv*/) {
                 continue;
             } else if (food_read_state == 0) {
                 //std::cout << "DEBUG: buf (0) = " << buf << std::endl;
-                general_options.push_back(Food_item(buf));
+                arr->push_back(Food_item(buf));
                 ++food_read_state;
                 continue;
             } else if (food_read_state == 1) {
@@ -78,7 +137,7 @@ int main (/*int argc, char** argv*/) {
                 do {
                     //std::cout << "DEBUG: buf (1) = " << buf << std::endl;
                     pos = buf.find(",");
-                    general_options.back().flavors.push_back(buf.substr(0, pos));
+                    arr->back().flavors.push_back(buf.substr(0, pos));
                     buf = buf.substr(pos+1);
                 } while (pos != std::string::npos);
 
@@ -87,49 +146,5 @@ int main (/*int argc, char** argv*/) {
         }
     }
 
-    //std::vector<const Food_item*> breakfast_options;
-    //for (auto& opt : food_options) {
-    //    for (auto& type : opt.types) {
-    //        if (type == FT_Breakfast) {breakfast_options.push_back(&opt);}
-    //    }
-    //}
-
-    std::time_t time =
-        std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    std::tm* tm_time = std::gmtime(&time);
-
-    std::cout << "Time: " << std::put_time(tm_time, "%F %T wd%u") << std::endl;
-
-    const Food_item* opt {nullptr};
-    //opt {
-    //    breakfast_options[rand.roll(0, breakfast_options.size()-1)]};
-    //std::cout << "Breakfast: "
-    //<< opt->name
-    //<< " [" << opt->flavors[rand.roll(0, opt->flavors.size()-1)] << "]"
-    //<< std::endl;
-
-    opt = &general_options[rand.roll(0, general_options.size()-1)];
-    std::cout << "Lunch: "
-    << opt->name
-    << " [" << opt->flavors[rand.roll(0, opt->flavors.size()-1)] << "]"
-    << std::endl;
-
-    opt = &general_options[rand.roll(0, general_options.size()-1)];
-    std::cout << "Dinner: "
-    << opt->name
-    << " [" << opt->flavors[rand.roll(0, opt->flavors.size()-1)] << "]"
-    << std::endl;
-
-    opt = &general_options[rand.roll(0, general_options.size()-1)];
-    std::cout << "Supper: "
-    << opt->name
-    << " [" << opt->flavors[rand.roll(0, opt->flavors.size()-1)] << "]"
-    << std::endl;
-
-    return 0;
-}
-
-int food_list_from_file(std::vector<Food_item>* arr, const std::string& fpath)
-{
     return 0;
 }
