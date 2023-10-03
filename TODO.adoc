@@ -2,18 +2,24 @@
 * Store option lists on file
 ** Txt file(s) will prob suffice, SQLite3 db would be more than enough otherwise
 ** Breakfast and General prob. enough for food types so get rid of others
+* Config file with entries containing random entries can point to a file
+  containing the list of options
 * Add other prints as per reqs
 ** List ongoing projects
 * Flag option to print slow
 * Flag option to print interactive entries (e.g. 'y' to accept 'n' to
-re-generate last offer)
+  re-generate last offer)
 * Flag option to suggest same (default) or various foods for lunch
-through supper
+  through supper
 * Include configurable option to force a certain food type once per day (e.g.
-Huel)
+  Huel)
 * Add other (config per week day) listings as per reqs
 ** Grooming suggestions
 ** Entertainment suggesetions
 ** Memo listing
 * Consider if more tuning is needed (e.g. day of month, etc.)
 * Add a suggestion for "unusual experience" and day countdown till event
+* Every x (e.g. 30+) days, e.g. doc review reminders
+** First Saturday after x days have passed would be lovely
+*** Can probably be implemented without the need to track days, e.g. print
+    if % days < 7 && weekday == Saturday;
