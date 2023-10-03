@@ -4,6 +4,7 @@ Considering the nature and variation of things we want to print out and the
 inherent expectation that the requirements of what exactly should be printed
 out and when will change drastically over time, the requirements can be boiled
 down into following high-level concepts:
+
 . The body of text to be printed should modular. (For the sake of brevity and
 familiarity the name "message" seems fitting to refer to each such module.)
 . The body of the text should be easy to configure.
@@ -20,8 +21,8 @@ familiarity the name "message" seems fitting to refer to each such module.)
 . The messages should be configurable to have fields with random options. It
   should be possible to direct the program to read the list of possible options
   for such a field from a given file.
-** *Idea* Can implement via a command-like syntax e.g.
-   '\rand_file{2}{my_opts.txt}'.
+** *Idea:* Can implement via a command-like syntax e.g.
+   `\rand_file{2}{my_opts.txt}`.
 ** _Would be nice_ if an array of options could also be defined in place, would
    be useful if there were only a few options so the configuration directory
    would not need to be littered with a lot of tiny files.
