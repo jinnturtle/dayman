@@ -1,11 +1,12 @@
 = TODO
+
 * Make the text body configurable via file and modular
 * Config file with entries containing random entries can point to a file
   containing the list of options
 * Add other prints as per reqs
 ** List ongoing projects
 * Flag option to print slow
-* Flag option to print interactive entries (e.g. 'y' to accept 'n' to
+* Flag option to print interactive entries (e.g. `y` to accept `n` to
   re-generate last offer)
 * Flag option to suggest same (default) or various foods for lunch
   through supper
