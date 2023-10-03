@@ -1,0 +1,74 @@
+= Techinical Thoughts and Requirements
+
+Considering the nature and variation of things we want to print out and the
+inherent expectation that the requirements of what exactly should be printed
+out and when will change drastically over time, the requirements can be boiled
+down into following high-level concepts:
+. The body of text to be printed should modular. (For the sake of brevity and
+familiarity the name "message" seems fitting to refer to each such module.)
+. The body of the text should be easy to configure.
+. The recurrence requirements for each message should be easy to configure.
+. The recurrence configuration should provide a somewhat broad selection of
+  options:
+** Day of week, month, year.
+** Should support ranges and lists for each of the above (e.g. month day
+   1,3,5-15).
+*** Can probably draw inspiration from how Cron task recurrence is configured.
+** _Would be nice_ if configuration supported a request to print a message on a
+   certain nearest week day after a certain month or year day has passed (e.g.
+   print this next Saturday after the 15th of the month). 
+. The messages should be configurable to have fields with random options. It
+  should be possible to direct the program to read the list of possible options
+  for such a field from a given file.
+** *Idea* Can implement via a command-like syntax e.g.
+   '\rand_file{2}{my_opts.txt}'.
+** _Would be nice_ if an array of options could also be defined in place, would
+   be useful if there were only a few options so the configuration directory
+   would not need to be littered with a lot of tiny files.
+. (Needs review) When defining a list of options it should be possible to
+  configure nested lists.
+
+== Examples of messages
+
+General item field requirements::
+* Week days available:
+** comma separated list, ranges defined with minus, asterisk = all
+* at least 2 nesting level i.e. category + subcategories + subsubcategories
+
+
+Grooming suggestions::
+* Shower
+* Shave
+
+Breakfast::
+* *Suggestion* <random food pick> [flavour suggestion 1, flavour suggestion 2]
+* *Alternative* <alternative random pick> [flavour suggestion 1, flavour suggestion 2]
+* *Snack* <rand. option 1>, <rand. option 2>
+
+Lunch::
+* *Suggestion* <random food pick> [flavour suggestion 1, flavour suggestion 2]
+* *Alternative* <alternative random pick> [flavour suggestion 1, flavour suggestion 2]
+* *Snack* <rand. option 1>, <rand. option 2>
+
+Dinner::
+* *Suggestion* <random food pick> [flavour suggestion 1, flavour suggestion 2]
+* *Alternative* <alternative random pick> [flavour suggestion 1, flavour suggestion 2]
+
+Supper::
+* *Suggestion* <random food pick> [flavour suggestion 1, flavour suggestion 2]
+* *Alternative* <alternative random pick> [flavour suggestion 1, flavour suggestion 2]
+
+Ongoing projects::
+* Proj 1
+* Proj 2
+* Proj 3
+
+Fun::
+* option 1
+* option 2
+
+Remember::
+* Memo 1
+* Memo 2
+* Memo 3
+* Memo ...

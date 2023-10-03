@@ -1,7 +1,5 @@
 = TODO
-* Store option lists on file
-** Txt file(s) will prob suffice, SQLite3 db would be more than enough otherwise
-** Breakfast and General prob. enough for food types so get rid of others
+* Make the text body configurable via file and modular
 * Config file with entries containing random entries can point to a file
   containing the list of options
 * Add other prints as per reqs
