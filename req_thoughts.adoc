@@ -15,19 +15,55 @@ familiarity the name "message" seems fitting to refer to each such module.)
 ** Should support ranges and lists for each of the above (e.g. month day
    1,3,5-15).
 *** Can probably draw inspiration from how Cron task recurrence is configured.
+*** Another way is to implement specific TeX-like commands which would be
+    evaluated in order and the message would be printed if a command returns
+    true.
 ** _Would be nice_ if configuration supported a request to print a message on a
    certain nearest week day after a certain month or year day has passed (e.g.
    print this next Saturday after the 15th of the month). 
 . The messages should be configurable to have fields with random options. It
   should be possible to direct the program to read the list of possible options
   for such a field from a given file.
-** *Idea:* Can implement via a command-like syntax e.g.
+** *Idea:* Can implement via a TeX-like command syntax e.g.
    `\rand_file{2}{my_opts.txt}`.
 ** _Would be nice_ if an array of options could also be defined in place, would
    be useful if there were only a few options so the configuration directory
    would not need to be littered with a lot of tiny files.
 . (Needs review) When defining a list of options it should be possible to
   configure nested lists.
+
+== Recurrence Commands (WIP)
+_Idea: Would be needed somewhere in or around the heading/declaration of the
+message in the config of the main body._
+
+=== `\anyDay{}` Any Day
+Argument::
+None / ignored.
+
+Returns::
+Always returns `true`.
+
+=== `\weekDay{}` Week Day
+Argument::
+A list of numbers and number ranges (comma sparated?) as argument.
+
+Ranges are defined by two numbers around a minus sign e.g. `3-7`. Week begins
+at Monday denoted by the number 1, Sunday is respectively denoted by the number
+7.
+
+Returns::
+`true` if the current week day falls within the submitted arguments, `false`
+otherwise.
+
+=== `\monthDay{}` Day of the Month
+
+=== `\yearDay{}`  Day of the Year
+
+=== `\yearWeek{}` Week of the Year
+Don't need this all that much, so not a priority.
+
+=== `\yearMonth{}` Month of the Year
+Don't need this all that much, so not a priority.
 
 == Examples of messages
 
